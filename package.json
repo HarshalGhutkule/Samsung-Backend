@@ -21,6 +21,7 @@
     "nodemon": "^2.0.15",
     "passport": "^0.5.2",
     "passport-google-oauth2": "^0.2.0",
+    "passport-google-oidc": "^0.1.0",
     "passport-twitter": "^0.1.5",
     "uuid": "^8.3.2"
   }

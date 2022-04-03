@@ -10,7 +10,7 @@ passport.use(
     {
       clientID: "487455266921-eidjjni1692sqcndr6r89pufc08spu6u.apps.googleusercontent.com",
       clientSecret: "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",
-      callbackURL: "https://samsung-clone-masai.netlify.app/auth/google/callback",
+      callbackURL: "https://shopclues-backend.herokuapp.com/oauth2/redirect/google",
       // passReqToCallback: true,
     },
     async function (request, accessToken, refreshToken, profile, done) {

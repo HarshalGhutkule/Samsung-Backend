@@ -4,13 +4,15 @@ const cors = require("cors");
 
 const connect = require("./configs/db");
 
+const { register, login } = require("./controllers/auth.controller");
+
 const { body } = require("express-validator");
 
-const {
-  register,
-  login,
-  resetPassword,
-} = require("./controllers/auth.controller");
+// const {
+//   register,
+//   login,
+//   resetPassword,
+// } = require("./controllers/auth.controller");
 
 
 const mobileController = require("./controllers/mobile.controller");
@@ -64,12 +66,40 @@ app.use(express.json());
 //   resetPassword
 // );
 
+app.post("/register", register);
+app.post("/login", login);
+
+
+/**
+ * GooGle Oauth Service 👇
+*/
+
+const passport = require("./configs/google-oauth");
+passport.serializeUser(function (user, done){
+    done(null, user);
+});
+
+passport.deserializeUser(function (user, done){
+    done(null, user);
+});
+
+app.get('/auth/google',
+passport.authenticate('google', { scope:
+  	[ 'email', 'profile' ] 
+}));
+ 
+app.get( '/auth/google/callback',
+    passport.authenticate( 'google', {
+        successRedirect: 'http://localhost:3000',
+        failureRedirect: '/auth/google/failure'
+}));
+
 app.use("/mobiles", mobileController);
 
-app.listen(process.env.PORT || 3001, '0.0.0.0', async () => {
+app.listen(process.env.PORT || 4500, '0.0.0.0', async () => {
   try {
     await connect();
-    console.log("listning to port 3001");
+    console.log("listning to port 4500");
   } catch (err) {
     console.log(err);
   }

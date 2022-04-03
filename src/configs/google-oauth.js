@@ -8,8 +8,8 @@ const User = require("../models/login_singUp.model");
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientID: 487455266921-eidjjni1692sqcndr6r89pufc08spu6u.apps.googleusercontent.com,
+      clientSecret: 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,
       callbackURL: "http://localhost:4500/auth/google/callback",
       // passReqToCallback: true,
     },

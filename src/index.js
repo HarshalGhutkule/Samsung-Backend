@@ -90,7 +90,7 @@ passport.authenticate('google', { scope:
  
 app.get( '/auth/google/callback',
     passport.authenticate( 'google', {
-        successRedirect: 'http://localhost:3000',
+        successRedirect: 'https://samsung-clone-masai.netlify.app',
         failureRedirect: '/auth/google/failure'
 }));
 

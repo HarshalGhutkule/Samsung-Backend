@@ -3,14 +3,14 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/login_singUp.model");
 
 const newToken = (user) => {
-  return jwt.sign({ user }, process.env.Samsung_Key);
+  return jwt.sign({ user }, "welcometomasai");
 };
 
 const register = async (req, res) => {
-  console.log(11)
+  
   try {
     // we will try to find the user with the email provided
-    console.log(11)
+    
     let user = await User.findOne({ email: req.body.email }).lean().exec();
 
     // if the user is found then it is an error

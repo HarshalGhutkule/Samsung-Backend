@@ -1,6 +1,6 @@
 require("dotenv").config();
 const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth2").Strategy;
+const GoogleStrategy = require("passport-google-oidc").Strategy;
 const { v4: uuidv4 } = require("uuid");
 
 const User = require("../models/login_singUp.model");

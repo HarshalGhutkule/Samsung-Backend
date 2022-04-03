@@ -1,6 +1,6 @@
 require("dotenv").config();
 const passport = require("passport");
-const GoogleStrategy = require("passport-google-oidc").Strategy;
+const GoogleStrategy = require("passport-google-oauth2").Strategy;
 const { v4: uuidv4 } = require("uuid");
 
 const User = require("../models/login_singUp.model");
@@ -10,7 +10,7 @@ passport.use(
     {
       clientID: "487455266921-eidjjni1692sqcndr6r89pufc08spu6u.apps.googleusercontent.com",
       clientSecret: "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",
-      callbackURL: "https://shopclues-backend.herokuapp.com/oauth2/redirect/google",
+      callbackURL: "http://localhost:4500/auth/google/callback",
       // passReqToCallback: true,
     },
     async function (request, accessToken, refreshToken, profile, done) {
